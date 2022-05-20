@@ -80,6 +80,24 @@ public static ArrayList<String>scramble(String word){
     
     return scrambled;
 }
+ 
+public static String scramble(String input){
+    String[] scrambled =  new String[input.length()];
+        for (int i = 0; i < input.length(); i++){
+            scrambled[i] = input.substring(i, i + 1); 
+        }
+        for (int k = 0; k < scrambled.length; k++){
+            String temporary = scrambled[k];
+            int newest = (int)(Math.random() * scrambled.length);
+            scrambled[k] = scrambled[newest];
+            scrambled[newest] = temporary;
+        }
+        String result = "";
+        for (int j = 0; j < scrambled.length; j++){
+            result += scrambled[j];
+        }
+        return result;
+}
 
 // public static ArrayList<String> scrambled(String word){
 //     String original = word;
